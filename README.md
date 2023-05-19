@@ -1,1 +1,3 @@
-# Desenvolvimento-Web
+# Repositório para a cadeira de Desenvolvimento Web - Trabalhos avulsos 
+
+Este é um repositório criado para a cadeira de Desenvolvimento Web. Exercícios envolvendo Javascript, DOM, html, css...
