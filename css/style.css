@@ -37,6 +37,20 @@ input[type="number"] {
     border-radius: 4px;
 }
 
+#total,
+#total h3,
+#total-pay {
+    display: inline;
+}
+
+#total {
+    margin-bottom: 20px;
+}
+
+#total-pay {
+    margin-left: 4px;
+}
+
 button {
     padding: 10px 20px;
     background-color: #247edd;

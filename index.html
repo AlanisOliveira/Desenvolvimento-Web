@@ -19,15 +19,20 @@
                 <h2>Produto</h2>
 
                 <label for="name">Nome:</label>
-                <input type="text" name="name">
+                <input required type="text" name="name">
 
                 <label for="price">Preço:</label>
-                <input type="number" name="price">
+                <input required type="number" name="price">
 
                 <label for="quantity">Quantidade:</label>
-                <input type="number" name="quantity">
+                <input required type="number" name="quantity">
             </section>
         </div>
+
+        <span id="total">
+            <h3>Total da compra:</h3>
+            <p id="total-pay">R$ 0</p>
+        </span>
 
         <span>
             <button id="add-product">Adicionar produto</button>
