@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="" method="post" onsubmit="submitForm()">
         <div id="product-list">
             <section class="products">
                 <h2>Produto</h2>
@@ -35,10 +35,13 @@
         </span>
 
         <span>
-            <button id="add-product">Adicionar produto</button>
+            <button id="remove-product">Remove um produto</button>
+            <button id="add-product">Adicionar um produto</button>
             <button type="submit">Enviar</button>
         </span>
     </form>
+
+    <span id="alert"></span>
 </body>
 
 </html>

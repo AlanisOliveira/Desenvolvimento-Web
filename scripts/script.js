@@ -39,13 +39,21 @@ function sumProductList() {
 
 
 function validateForm(type, input) {
+    let alertElement = document.querySelector('#alert')
+
     if (type === 'price') {
         input.addEventListener('input', (event) => {
             event.preventDefault()
 
             if (input.value < 0) {
                 input.value = ''
-                alert('não use números menores que zero!')
+
+                alertElement.style.display = 'block'
+                alertElement.innerHTML = 'não use números menores que zero!'
+
+                setTimeout(() => {
+                    alertElement.style.display = 'none';
+                }, 3000);
             }
 
             sumProductList()
@@ -58,18 +66,57 @@ function validateForm(type, input) {
 
             if (input.value < 1) {
                 input.value = 1
-                alert('quantidade minima é 1')
+
+                alertElement.style.display = 'block'
+                alertElement.innerHTML = 'quantidade minima é 1'
+
+                setTimeout(() => {
+                    alertElement.style.display = 'none';
+                }, 3000);
             }
 
             if (parseFloat(input.value) !== parseInt(input.value, 10)) {
                 input.value = parseInt(input.value)
-                alert("apenas números inteiros são permitidos neste campo!")
+
+                alertElement.style.display = 'block'
+                alertElement.innerHTML = 'apenas números inteiros são permitidos neste campo!'
+
+                setTimeout(() => {
+                    alertElement.style.display = 'none';
+                }, 3000);
             }
 
             sumProductList()
         })
     }
 }
+
+function submitForm() {
+    let products = document.querySelectorAll('.products')
+
+    let names = ['name', 'price', 'quantity']
+    let inputs = []
+
+    products.forEach(product => {
+        names.forEach(e => {
+            inputs.push(product.querySelector(`input[name="${e}"]`).value)
+        })
+
+        return (inputs[0] != '' && !(inputs[1] < 0) && inputs[2] < 1) ? true : false
+    })
+}
+
+
+document.querySelector('#remove-product').addEventListener('click', (event) => {
+    event.preventDefault()
+
+
+    let products = document.querySelectorAll('.products')
+    if (products.length > 1) {
+        products[products.length - 1].remove()
+        sumProductList()
+    }
+})
 
 
 validateForm('price', document.querySelector('input[name="price"]'))
